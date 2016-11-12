@@ -7,6 +7,11 @@ echo "Adding lucee nginx configuration files"
 cp etc/nginx/conf.d/lucee-global.conf /etc/nginx/conf.d/lucee-global.conf
 cp etc/nginx/lucee.conf /etc/nginx/lucee.conf
 cp etc/nginx/lucee-proxy.conf /etc/nginx/lucee-proxy.conf
+# create Ubuntu style nginx site folders
+mkdir -p /etc/nginx/sites-enabled
+mkdir -p /etc/nginx/sites-available
+# add the sites-enabled config option
+sed -i '\@include /etc/nginx/conf\.d/\*\.conf;@a 	include /etc/nginx/sites-enabled/\*;' /etc/nginx/nginx.conf
 
 echo "Configuring modcfml shared secret in nginx"
 shared_secret=`cat /opt/lucee/modcfml-shared-key.txt`

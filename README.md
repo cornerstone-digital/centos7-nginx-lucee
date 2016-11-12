@@ -34,6 +34,9 @@ How do I run it?
 6. **Run install.sh** - make sure you are root or sudo and run `./install.sh`.
 7. **Set Lucee Passwords** - login to `/lucee/admin/server.cfm` and set the server password, and also set the default web context password.
 
+**NOTE:** If you want to accept the defaults, you can use the following to download and install everything with a single command:
+`curl --silent -Lo /tmp/centos7-nginx-lucee.tar.gz https://api.github.com/repos/dswitzer/centos7-nginx-lucee/tarball/master && cd /tmp/ && tar -xzf /tmp/centos7-nginx-lucee.tar.gz && cd /tmp/dswitzer-centos7*/ && chmod u+x install.sh && ./install.sh`
+
 Limitations / Known Issues
 --------------------------
 
