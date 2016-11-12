@@ -7,7 +7,8 @@ export JVM_MAX_HEAP_SIZE="512m"
 # to find the download path, go to Oracle's JRE Downloads page (http://www.oracle.com/technetwork/java/javase/downloads/)
 # and find the path to the Linux x64 JDK
 export JDK_DOWNLOAD=http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
-
+# define the webroot
+export WEB_ROOT="/web"
 
 #root permission check
 if [ "$(whoami)" != "root" ]; then
@@ -47,4 +48,9 @@ separator
 
 echo "Setup Complete"
 separator
-echo "GO SET YOUR LUCEE PASSWORDS: http://localhost/lucee/admin/server.cfm"
+echo ""
+echo "Important information"
+echo "====================="
+echo ""
+echo "* You must setup you Lucee Passwords: http://localhost/lucee/admin/server.cfm"
+echo "* If you do not want to use $WEB_ROOT/example.com, then clean up the folder"
