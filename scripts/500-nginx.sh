@@ -2,7 +2,7 @@
 web_root="/web"
 
 echo "Installing nginx"
-yum install nginx
+yum $YUM_OPTIONS install nginx
 echo "Adding lucee nginx configuration files"
 cp etc/nginx/conf.d/lucee-global.conf /etc/nginx/conf.d/lucee-global.conf
 cp etc/nginx/lucee.conf /etc/nginx/lucee.conf
@@ -24,8 +24,8 @@ echo "<!doctype html><html><body><h1>Hello</h1></body></html>" > $web_root/defau
 
 
 
-#add tomcat7 to www-data group so it can read files
-usermod -aG www-data tomcat7
+#add tomcat to www-data group so it can read files
+usermod -aG www-data tomcat
 
 #set the web directory permissions
 chown -R root:www-data $web_root

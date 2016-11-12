@@ -47,10 +47,10 @@ tar -xf $JVM_FILE -C /opt/lucee/jvm
 chown -R root:root /opt/lucee/jvm
 chmod -R 755 /opt/lucee/jvm
 ln -s /opt/lucee/jvm/jdk$JDK_VER /opt/lucee/jvm/current
-echo $'\nJAVA_HOME="/opt/lucee/jvm/current"' >> /etc/default/tomcat7
+echo $'\nJAVA_HOME="/opt/lucee/jvm/current"' >> /etc/default/tomcat
 
 echo "Tomcat / Lucee Configuration Done, Restarting Tomcat..."
-service tomcat7 restart
+service tomcat restart
 
 # check to see if we need to auto remove the file
 if [[ $AUTOREMOVE_JDK_FILE == true ]]; then

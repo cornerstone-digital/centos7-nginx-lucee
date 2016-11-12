@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Updating CentOS Software"
-yum update
-yum upgrade
+yum $YUM_OPTIONS update
+yum $YUM_OPTIONS upgrade
 
-yum install unzip
+yum $YUM_OPTIONS install unzip
