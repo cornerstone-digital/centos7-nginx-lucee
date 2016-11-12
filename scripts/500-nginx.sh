@@ -13,11 +13,11 @@ shared_secret=`cat /opt/lucee/modcfml-shared-key.txt`
 sed -i "s/SHARED-KEY-HERE/$shared_secret/g" /etc/nginx/lucee-proxy.conf
 
 echo "Creating web root and default sites here: " $web_root
-mkdir $web_root
-mkdir $web_root/default
-mkdir $web_root/default/wwwroot
-mkdir $web_root/example.com
-mkdir $web_root/example.com/wwwroot
+mkdir -p $web_root
+mkdir -p $web_root/default
+mkdir -p $web_root/default/wwwroot
+mkdir -p $web_root/example.com
+mkdir -p $web_root/example.com/wwwroot
 
 echo "Creating a default index.html"
 echo "<!doctype html><html><body><h1>Hello</h1></body></html>" > $web_root/default/wwwroot/index.html

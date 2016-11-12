@@ -28,7 +28,7 @@ How do I run it?
 
 1. **Downlaod this repository** - `curl -Lo /tmp/centos7-nginx-lucee.tar.gz https://api.github.com/repos/dswitzer/centos7-nginx-lucee/tarball/master`
 2. **Extract repository** - `tar -xzvf /tmp/centos7-nginx-lucee.tar.gz`
-3. ** Change to install folder** - Go to the install folder `cd /tmp/dswitzer-centos-nginx-lucee-abcdefg/`
+3. **Change to install folder** - Go to the install folder `cd /tmp/dswitzer-centos-nginx-lucee-abcdefg/`
 4. **Edit the `install.sh`** - Change any configuration options such as the Lucee Version or JVM version.
 5. **Make `install.sh` executable** - you may need to `chmod u+x install.sh` to give execute permissions to the script.
 6. **Run install.sh** - make sure you are root or sudo and run `./install.sh`.

@@ -5,10 +5,10 @@ yum $YUM_OPTIONS install tomcat
 
 echo "Configuring Tomcat"
 
-mkdir backup
-mkdir backup/etc
-mkdir backup/etc/tomcat
-mkdir backup/etc/default
+mkdir -p backup
+mkdir -p backup/etc
+mkdir -p backup/etc/tomcat
+mkdir -p backup/usr
 #backup default tomcat web.xml
 cp /etc/tomcat/web.xml backup/etc/tomcat/web.xml-orig-backup
 #copy our web.xml to tomcat directory
@@ -24,7 +24,7 @@ cp /etc/tomcat/catalina.properties backup/etc/tomcat/catalina.properties-orig-ba
 #copy our catalina properties
 cp etc/tomcat/catalina.properties /etc/tomcat/
 
-cp /etc/default/tomcat backup/etc/default/tomcat
+cp /usr/share/tomcat/conf/tomcat.conf backup/usr/tomcat.conf
 
 echo "Installing mod_cfml Valve for Automatic Virtual Host Configuration"
 if [ -f lib/mod_cfml-valve_v1.1.05.jar ]; then
@@ -46,7 +46,7 @@ sed -i "s/SHARED-KEY-HERE/$shared_secret/g" /etc/tomcat/server.xml
 
 
 echo "Setting Permissions on Lucee Folders"
-mkdir /var/lib/tomcat/lucee-server
+mkdir -p /var/lib/tomcat/lucee-server
 chown -R tomcat:tomcat /var/lib/tomcat/lucee-server
 chmod -R 750 /var/lib/tomcat/lucee-server
 chown -R tomcat:tomcat /opt/lucee
@@ -54,4 +54,4 @@ chmod -R 750 /opt/lucee
 
 echo "Setting JVM Max Heap Size to " $JVM_MAX_HEAP_SIZE
 
-sed -i "s/-Xmx128m/-Xmx$JVM_MAX_HEAP_SIZE/g" /etc/default/tomcat
+sed -i "s/-Xmx128m/-Xmx$JVM_MAX_HEAP_SIZE/g" /usr/share/tomcat/conf/tomcat.conf

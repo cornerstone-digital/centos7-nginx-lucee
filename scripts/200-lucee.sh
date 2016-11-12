@@ -5,11 +5,11 @@ jar_folder="lucee-$LUCEE_VERSION"
 
 echo "Installing Lucee"
 echo "Downloading Lucee " $LUCEE_VERSION
-mkdir /opt/lucee
-mkdir /opt/lucee/config
-mkdir /opt/lucee/config/server
-mkdir /opt/lucee/config/web
-mkdir /opt/lucee/$jar_folder
+mkdir -p /opt/lucee
+mkdir -p /opt/lucee/config
+mkdir -p /opt/lucee/config/server
+mkdir -p /opt/lucee/config/web
+mkdir -p /opt/lucee/$jar_folder
 curl --location -o /opt/lucee/$jar_folder/lucee.jar $jar_url
 
 if [ -f "/opt/lucee/$jar_folder/lucee.jar" ]; then

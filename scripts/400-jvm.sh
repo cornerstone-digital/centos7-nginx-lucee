@@ -42,8 +42,8 @@ fi
 
 echo "Installing Oracle JVM..."
 
-mkdir /opt/lucee/jvm
-tar -xf $JVM_FILE -C /opt/lucee/jvm
+mkdir -p /opt/lucee/jvm
+tar -zxf $JVM_FILE -C /opt/lucee/jvm
 chown -R root:root /opt/lucee/jvm
 chmod -R 755 /opt/lucee/jvm
 ln -s /opt/lucee/jvm/jdk$JDK_VER /opt/lucee/jvm/current
