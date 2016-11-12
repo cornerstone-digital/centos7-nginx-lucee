@@ -2,7 +2,7 @@
 web_root="/web"
 
 echo "Installing nginx"
-apt-get install nginx
+yum install nginx
 echo "Adding lucee nginx configuration files"
 cp etc/nginx/conf.d/lucee-global.conf /etc/nginx/conf.d/lucee-global.conf
 cp etc/nginx/lucee.conf /etc/nginx/lucee.conf

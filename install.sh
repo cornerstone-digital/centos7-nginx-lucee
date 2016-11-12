@@ -1,10 +1,11 @@
 #!/bin/bash
 
-#configuration options
-export LUCEE_VERSION="5.0.0.252"
+# configuration options
+export LUCEE_VERSION="5.0.1.85"
 export JVM_MAX_HEAP_SIZE="512m"
-export JVM_FILE="server-jre-8u66-linux-x64.tar.gz"
-export JVM_VERSION="1.8.0_66"
+# to find the download path, go to Oracle's JRE Downloads page (http://www.oracle.com/technetwork/java/javase/downloads/)
+# and find the path to the Linux x64 JDK
+export JDK_DOWNLOAD=http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
 
 
 #root permission check
@@ -24,7 +25,7 @@ chown -R root scripts/*.sh
 chmod u+x scripts/*.sh
 
 #update ubuntu software
-./scripts/100-ubuntu-update.sh
+./scripts/100-os-update.sh
 separator
 
 #download lucee
@@ -36,7 +37,7 @@ separator
 separator
 
 #install jvm
-./scripts/400-jvm.sh
+./scripts/400-jvm.sh $JDK_DOWNLOAD
 separator
 
 #install nginx

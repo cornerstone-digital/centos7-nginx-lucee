@@ -1,7 +1,7 @@
 centos7-nginx-lucee
 ==================
 
-**NOTE:** This is a fork of Foundeo's unbuntu-nginx-lucee project. If you are running Ubuntu, please see that repository.
+**NOTE:** This is a fork of Foundeo's [unbuntu-nginx-lucee](https://github.com/foundeo/ubuntu-nginx-lucee) project. If you are running Ubuntu, please see that repository.
 
 A set of bash scripts for standing up a Lucee server using nginx and Tomcat on CentOS 7. Uses the
 Tomcat from the CentOS 7 distribution so you can update Tomcat using `yum update tomcat7`
@@ -18,7 +18,7 @@ What does it do?
 1. **Updates CentOS 7** - simply runs `yum update` and `yum upgrade`
 2. **Downloads Lucee** - uses curl to download lucee jars from BitBucket places jars in `/opt/lucee/current/`
 3. **Installs & Configures Tomcat 7** - runs `yum install tomcat7` updates the `web.xml` `server.xml` and `catalina.properties` to configure Lucee servlets and mod_cfml Valve.
-4. **Installs Oracle JVM** - if you downloaded a server-jre and specified its path in the config it will extract it under `/opt/lucee/jvm/version` and then create a symbolic link `/opt/lucee/jvm/current` to denote the current jvm version to use. It also edits tomcat config to point to this jvm.
+4. **Downloads & Installs Oracle JVM** - Downloads the Oracle JVM and installs it to `/opt/lucee/jvm/version` and then create a symbolic link `/opt/lucee/jvm/current` to denote the current JVM version to use. It also edits tomcat config to point to this JVM.
 5. **Installs & Configures nginx** - runs `yum install nginx` to install nginx. Crates a web root directory. Creates a `lucee.config` file so you can just `include lucee.config` for any site that uses CFML
 
 Take a look in the `scripts/` subfolder to see the script for each step.
@@ -26,13 +26,12 @@ Take a look in the `scripts/` subfolder to see the script for each step.
 How do I run it?
 ----------------
 
-1. **Download Oracle JVM** - Vist [java.oracle.com](http://java.oracle.com/) to download the latest server-jre
-2. **Downlaod this repository** - `curl -Lo /root/centos7-nginx-lucee.tar.gz https://api.github.com/repos/foundeo/centos7-nginx-lucee/tarball/master`
-3. **Extract repository** - `tar -xzvf /root/centos7-nginx-lucee.tar.gz`
-4. **Edit the `install.sh`** - Change any configuration options such as the Lucee Version or JVM version.
-5. **Copy jvm** - make sure the jvm you downloaded from oracle is located in the folder that contains install.sh, eg `/root/foundeo-centos7-nginx-lucee-abcdefg/`
-6. **Run install.sh** - make sure you are root or sudo and run `./install.sh` you may need to `chmod u+x install.sh` to give execute permissions to the script.
-7. **Set Lucee Passwords** - login to `/lucee/admin/server.cfm` and set the server password, and also set the default web context password.
+1. **Downlaod this repository** - `curl -Lo /tmp/centos7-nginx-lucee.tar.gz https://api.github.com/repos/dswitzer/centos7-nginx-lucee/tarball/master`
+2. **Extract repository** - `tar -xzvf /tmp/centos7-nginx-lucee.tar.gz`
+3. **Edit the `install.sh`** - Change any configuration options such as the Lucee Version or JVM version.
+4. **Make `install.sh` executable** - you may need to `chmod u+x install.sh` to give execute permissions to the script.
+5. **Run install.sh** - make sure you are root or sudo and run `./install.sh`.
+6. **Set Lucee Passwords** - login to `/lucee/admin/server.cfm` and set the server password, and also set the default web context password.
 
 Limitations / Known Issues
 --------------------------
@@ -79,6 +78,5 @@ After making changes you need to restart or reload nginx:
 	sudo service nginx restart
 
 For more information on configuring nginx see the [nginx Wiki](http://wiki.nginx.org/Configuration)
-
 
 Thanks go to [Booking Boss](http://www.bookingboss.com/) for funding the initial work on this script.
