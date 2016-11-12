@@ -12,6 +12,8 @@ mkdir -p /etc/nginx/sites-enabled
 mkdir -p /etc/nginx/sites-available
 # add the sites-enabled config option
 sed -i '\@include /etc/nginx/conf\.d/\*\.conf;@a 	include /etc/nginx/sites-enabled/\*;' /etc/nginx/nginx.conf
+# disable default site, by commenting out the listen on port 80
+sed -i -E 's/\blisten\s+(\[::\]:)?80/#&/' /etc/nginx/nginx.conf
 
 echo "Configuring modcfml shared secret in nginx"
 shared_secret=`cat /opt/lucee/modcfml-shared-key.txt`
@@ -29,8 +31,9 @@ echo "<!doctype html><html><body><h1>Hello</h1></body></html>" > $WEB_ROOT/defau
 
 
 
-#add tomcat to www-data group so it can read files
+#add tomcat and nginx users to apache group so it can read files
 usermod -aG apache tomcat
+usermod -aG apache nginx
 
 #set the web directory permissions
 chown -R root:apache $WEB_ROOT
