@@ -29,8 +29,6 @@ mkdir -p $WEB_ROOT/example.com/wwwroot
 echo "Creating a default index.html"
 echo "<!doctype html><html><body><h1>Hello</h1></body></html>" > $WEB_ROOT/default/wwwroot/index.html
 
-
-
 #add tomcat and nginx users to apache group so it can read files
 usermod -aG apache tomcat
 usermod -aG apache nginx
