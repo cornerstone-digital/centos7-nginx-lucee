@@ -46,12 +46,12 @@ sed -i "s/SHARED-KEY-HERE/$shared_secret/g" /etc/tomcat/server.xml
 
 
 echo "Setting Permissions on Lucee Folders"
-mkdir -p /var/lib/tomcat/lucee-server
-chown -R tomcat:tomcat /var/lib/tomcat/lucee-server
-chmod -R 750 /var/lib/tomcat/lucee-server
+mkdir -p /usr/share/tomcat/lucee-server
+chown -R tomcat:tomcat /usr/share/tomcat/lucee-server
+chmod -R 750 /usr/share/tomcat/lucee-server
 chown -R tomcat:tomcat /opt/lucee
 chmod -R 750 /opt/lucee
-chown -R tomcat:tomcat /var/lib/tomcat/webapps/
+chown -R tomcat:tomcat /usr/share/tomcat/webapps/
 
 echo "Setting JVM Max Heap Size to " $JVM_MAX_HEAP_SIZE
 
