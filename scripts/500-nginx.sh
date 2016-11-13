@@ -10,8 +10,10 @@ cp etc/nginx/lucee-proxy.conf /etc/nginx/lucee-proxy.conf
 # create Ubuntu style nginx site folders
 mkdir -p /etc/nginx/sites-enabled
 mkdir -p /etc/nginx/sites-available
+echo "Adding sites-enabled support"
 # add the sites-enabled config option
 sed -i '\@include /etc/nginx/conf\.d/\*\.conf;@a 	include /etc/nginx/sites-enabled/\*;' /etc/nginx/nginx.conf
+echo "Disabling nginx default site"
 # disable default site, by commenting out the listen on port 80
 sed -i -E 's/\blisten\s+(\[::\]:)?80/#&/' /etc/nginx/nginx.conf
 
@@ -40,8 +42,6 @@ chmod -R 750 $WEB_ROOT
 
 echo "Adding Default and Example Site to nginx"
 cp etc/nginx/sites-available/*.conf /etc/nginx/sites-available/
-echo "Removing nginx default site"
-rm /etc/nginx/sites-enabled/default
 echo "Adding our default site"
 ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
