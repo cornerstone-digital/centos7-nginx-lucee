@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing Tomcat 7"
-yum $YUM_OPTIONS install tomcat
+yum $YUM_OPTIONS install tomcat tomcat7-webapps
 
 echo "Configuring Tomcat"
 
