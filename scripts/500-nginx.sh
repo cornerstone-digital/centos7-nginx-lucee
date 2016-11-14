@@ -36,7 +36,7 @@ usermod -aG apache tomcat
 usermod -aG apache nginx
 
 #set the web directory permissions
-chown -R root:apache $WEB_ROOT
+chown -R tomcat:apache $WEB_ROOT
 chmod -R 750 $WEB_ROOT
 
 
@@ -46,5 +46,5 @@ echo "Adding our default site"
 ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
 
-
+systemctl enable nginx
 service nginx restart

@@ -51,6 +51,7 @@ ln -s /opt/lucee/jvm/jdk$JDK_VER /opt/lucee/jvm/current
 echo $'\nJAVA_HOME="/opt/lucee/jvm/current"' >> /etc/default/tomcat
 
 echo "Tomcat / Lucee Configuration Done, Restarting Tomcat..."
+systemctl enable tomcat
 service tomcat restart
 
 # check to see if we need to auto remove the file
