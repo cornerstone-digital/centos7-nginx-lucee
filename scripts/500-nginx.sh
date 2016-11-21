@@ -4,7 +4,7 @@
 echo "Installing nginx"
 yum $YUM_OPTIONS install nginx
 echo "Adding lucee nginx configuration files"
-cp etc/nginx/conf.d/lucee-global.conf /etc/nginx/conf.d/lucee-global.conf
+cp etc/nginx/conf.d/*.conf /etc/nginx/conf.d/
 cp etc/nginx/lucee.conf /etc/nginx/lucee.conf
 cp etc/nginx/lucee-proxy.conf /etc/nginx/lucee-proxy.conf
 # create Ubuntu style nginx site folders
