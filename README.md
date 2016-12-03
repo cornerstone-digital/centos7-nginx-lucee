@@ -3,6 +3,9 @@ centos7-nginx-lucee
 
 **NOTE:** This is a fork of Foundeo's [unbuntu-nginx-lucee](https://github.com/foundeo/ubuntu-nginx-lucee) project. If you are running Ubuntu, please see that repository.
 
+**NOTE:** If you're looking for inexpensive hosting, take a look at [Digital Ocean](http://www.digitalocean.com/?refcode=1eaf07b6bf2e). These scripts were developed for setting up my own Digital Ocean account. For around $5/month, you can configure your own dedicate server that will be more than sufficient for most uses.
+
+
 A set of bash scripts for standing up a Lucee server using nginx and Tomcat on CentOS 7. Uses the
 Tomcat from the CentOS 7 distribution so you can update Tomcat using `yum update tomcat7`
 
