@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # configuration options
-export LUCEE_VERSION="5.0.1.85"
+export LUCEE_VERSION="5.2.4.37"
 export YUM_OPTIONS="--assumeyes --quiet"
 export JVM_MAX_HEAP_SIZE="512m"
 # to find the download path, go to Oracle's JRE Downloads page (http://www.oracle.com/technetwork/java/javase/downloads/)
